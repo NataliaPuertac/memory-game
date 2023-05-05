@@ -1,2 +1,12 @@
 .header {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+
+    &__title{
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        padding-top: 50px;
+    }
 }
