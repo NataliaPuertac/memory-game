@@ -8,5 +8,20 @@
 
 .game{
     display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+}
 
+.card {
+    width: 6rem;
+    height: 6rem;
+    margin: 1rem;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 8px 7px 8px 0px rgba(0, 0, 0, 0.66);
 }
