@@ -5,8 +5,12 @@
 
     &__title{
         color: white;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: bold;
         padding-top: 50px;
+
+        @media (min-width: 1200px){
+            font-size: 3rem;
+        }
     }
 }

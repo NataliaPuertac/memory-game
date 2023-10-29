@@ -1,19 +1,19 @@
 'use strict';
 
-// Define variables
+// Variables
 const cardValues = ['./assets/images/kiwi.png', './assets/images/avocado.png', './assets/images/apple.png', './assets/images/orange.png', './assets/images/watermelon.png', './assets/images/pineapple.png',];
 
-//Generamos un duplicado de las cartas y las randomizamos:
+//Hacemos un duplicado de las cartas y las randomizamos:
 const randomisedElements = ([].concat(cardValues, cardValues.slice())).sort(() => Math.random() - 0.5);
 
 let remainingCards = randomisedElements.length;
 let flippedCards = [];
 
-// Creamos tablero de juego:
+// Hacemos el tablero de juego:
 const game = document.querySelector('.game');
 
 
-//Función efecto confeti:
+//Función para el efecto confeti:
 const generateConfetti = () => {
   const duration = 15 * 1000;
   const animationEnd = Date.now() + duration;
@@ -29,7 +29,6 @@ const generateConfetti = () => {
 
     const particleCount = 50 * (timeLeft / duration);
 
-    // since particles fall down, start a bit higher than random
     confetti(
       Object.assign({}, defaults, {
         particleCount,
@@ -45,7 +44,7 @@ const generateConfetti = () => {
   }, 250);
 };
 
-// Definimos la función que verifica el match de las tarjetas:
+// Definir la función que verifica que las tarjetas son iguales:
 const checkMatch = () => {
   if (flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
     flippedCards.forEach(card => {
@@ -60,15 +59,15 @@ const checkMatch = () => {
     }
 
   } else {
-    //Oculta la imagen para continuar con el juego:
-    flippedCards.forEach(card => card.setAttribute('src', './images/interrogante.jpg'));
-    //Limpia targetas giradas:
+    //Ocultar la imagen para continuar con el juego:
+    flippedCards.forEach(card => card.setAttribute('src', './assets/images/interrogación.jpg'));
+    //Limpiar targetas giradas:
     flippedCards = [];
   }
 };
 
 
-// Definimos la función de voltear la tarjeta:
+// Función de voltear la tarjeta:
 function flipCard() {
   console.log(this);
   if (flippedCards.length < 2 && !flippedCards.includes(this)) {
@@ -81,16 +80,16 @@ function flipCard() {
   }
 }
 
-// Creamos función para generar la tarjeta:
+// Función para generar la tarjeta:
 const cardGenerator = (cardValue) => {
   const card = document.createElement('img');
 
   card.classList.add('card');
   card.dataset.value = cardValue;
-  card.setAttribute('src', './images/interrogante.jpg');
+  card.setAttribute('src', './assets/images/interrogación.jpg');
   card.addEventListener('click', flipCard, card);
 
-  // Añadimos tarjeta al tablero y añadimos el handleClick:
+
   game.appendChild(card);
 };
 
