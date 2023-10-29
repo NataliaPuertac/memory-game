@@ -4,10 +4,11 @@
     justify-content: center;
 
     &__title{
-        color: white;
+        color: rgb(255, 255, 255);
         font-size: 2rem;
         font-weight: bold;
         padding-top: 50px;
+        -webkit-text-stroke: 1.5px black;
 
         @media (min-width: 1200px){
             font-size: 3rem;
